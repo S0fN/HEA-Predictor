@@ -1,0 +1,12 @@
+# Environment and cache
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Local training scripts and unused model
+train_model.py
+generate_training_data.py
+data.py
+hea_model_regressor.joblib
