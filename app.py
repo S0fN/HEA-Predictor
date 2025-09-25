@@ -29,6 +29,11 @@ def load_assets():
         reg_model = joblib.load('hea_regressor.joblib')
         clf_model = joblib.load('hea_classifier.joblib')
         platable_metals = sorted(engine.salts_df['Metal'].unique().tolist())
+
+        st.info(f"DEBUG INFO (from app.py): The following {len(platable_metals)} metals were loaded from the data file: {platable_metals}", icon="🔬")
+        if 'Cd' not in platable_metals:
+            st.error("CONFIRMED: 'Cd' is missing from the data loaded by the live application.", icon="🚨")
+
         try:
             success_df = pd.read_csv('final_stratified_dataset_5metals.csv')
         except FileNotFoundError:

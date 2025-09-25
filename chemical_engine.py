@@ -10,6 +10,7 @@ class ChemicalEngine:
 
         try:
             self.salts_df = pd.read_csv(f'{data_folder_path}D1_D4_Master_Salts.csv').rename(columns=str.strip)
+            print("DEBUG LOG (from chemical_engine.py): Metals found ->", sorted(self.salts_df['Metal'].unique().tolist()))
             self.pka_df = pd.read_csv(f'{data_folder_path}D7_pKa_pKb_Values.csv').rename(columns=str.strip)
             self.stability_df = pd.read_csv(f'{data_folder_path}D8_Stability_Constants.csv').rename(columns=str.strip)
             self.ion_params_df = pd.read_csv(f'{data_folder_path}D5_Ion_Parameters.csv').rename(columns=str.strip)
